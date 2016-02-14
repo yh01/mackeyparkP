@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.themepark{
+	display: block;
+	margin: auto;
+	width: 1200;
+}
+
+h1 span{
+	 color:red;
+}
+
+.checkboxright{
+	display:inline-block;
+	margin-left:20px;
+}
+
+.checkboxright button{
+	height:50px;
+	display:block;
+	width:160px;
+
+	position:relative;
+	bottom:50px;
+}

@@ -1,0 +1,200 @@
+
+/*--ここからQAのcss－－*/
+p{
+  text-align:center;
+  margin:80px 50px;
+}
+
+h4{
+  color:red;
+  text-align:center;
+}
+
+.QAform table{
+  margin:0 auto;
+}
+
+
+.main-form{
+  text-align:center;
+}
+
+.main-formin{
+  margin-top:50px;
+  margin-bottom:50px;
+  margin-left:60px;
+}
+
+table.main-formbottom{
+  margin-top:30px;
+  margin-left:200px;
+  margin-right:50px;
+}
+
+.main-form th,td{
+  text-align:left;
+}
+
+
+
+.fields h4{
+  color:red;
+}
+
+.QAform{
+  margin:0 auto;
+}
+
+label{
+  color:black;
+}
+
+th,td{
+  padding-bottom:30px;
+}
+
+
+
+
+/*Login.cssをまるこぴ*/
+body,p,form,input{margin: 0}
+#form{
+  width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #555;
+
+
+  }
+
+form p{
+    font-size: 14px;
+
+
+    }
+
+.form-title{
+  text-align: center;
+  font-family: Arial;
+  font-size: 30px;
+  color: #4eb4c2;
+  }
+
+  #form p{
+    color: #077685;
+    font-weight: bold;
+    }
+
+  #form .form-title{
+    font-family: Arial;
+    font-size: 30px;
+    color: #4eb4c2;
+    }
+
+  /* skin */
+  #form{
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 1px 10px #488a9e;
+    -moz-box-shadow: 0px 1px 10px #488a9e;
+    box-shadow: 0px 1px 10px #488a9e;
+    border: solid #4eb4c2 1px;
+    background: #fafafa;
+    }
+
+  #form .form-title{
+    padding-bottom: 6px;
+    border-bottom: 2px solid #4eb4c2;
+    margin-bottom: 20px;
+    }
+
+  .submit input{
+
+
+      /* �����T�C�Y��1.4em�Ɏw�� */
+
+      font-size: 1.4em;
+
+
+
+
+      /* �����̑�����bold�Ɏw�� */
+
+      font-weight: bold;
+
+
+
+      /* �c������10px�A
+
+       * ��������30px�̗]�����w�� */
+
+      padding: 10px 30px;
+
+
+
+      /* �����F�𔒐F�Ɏw�� */
+
+      color: #fff;
+
+
+
+      /* �{�[�_�[���Ȃ��� */
+
+      border-style: none;
+
+
+
+      /* �{�^���̉e�̎w��
+       * �e�̉�����2px
+
+       * �c����2px
+
+       * �ڂ�����3px
+
+       * �L������1px
+
+       * �F��#666�i�O���[�j�Ɏw�� */
+
+      box-shadow: 2px 2px 3px 1px #666;
+
+      -moz-box-shadow: 2px 2px 3px 1px #666;
+
+      -webkit-box-shadow: 2px 2px 3px 1px #666;
+
+
+
+      /* �e�L�X�g�̉e�̎w��
+
+       * �e�̉�����1px
+
+       * �c����1px
+       * �ڂ�����2px
+
+       * �F��#000�i���j�Ɏw�� */
+
+      text-shadow: 1px 1px 2px #000;
+
+
+
+      /* �F�̎w�� */
+
+      background:#7fbfff;
+
+      ;
+
+      -moz-border-radius: 5px;
+
+      -webkit-border-radius: 5px;
+
+      border-radius: 5px;
+
+  }
+
+  .submit input:hover{
+    background: #37a4bf;
+    }
+
+   .action {
+   float:center;
+   }
