@@ -13,10 +13,13 @@ public class GoPurchaseAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		if(session.containsKey("id")){
 			System.out.println("成功");
+			dao.loginPopup2();
 			return "success";
-		}else if(session.containsKey("loginId")){
+		}else if(session.containsKey("FloginId")){
+			dao.loginPopup2();
 			return "success";
 		}
+		dao.loginPopup1();
 		System.out.println("失敗");
 		return "error";
 	}

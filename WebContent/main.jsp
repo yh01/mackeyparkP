@@ -12,32 +12,7 @@
 <link href="jquery-ui-1.11.4.custom/external/jquery/jquery.js">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-	<%String login=(String) session.getAttribute("id");%>
-	<script>
-	    $(function() {
-	        $( "#pur-button" ).click(function() {
-	        	if(<%=(String) session.getAttribute("id")%>){
-	        		alert("購入画面に遷移");
-	        	}else{
-	        		alert("ログインしてください");
-	        	}
-	        });
-	    });
-    </script>
-    <script>
-	    $(function() {
-	        $( "#newuser-button" ).click(function() {
-	            alert("新規登録画面に遷移します。");
-	        });
-	    });
-    </script>
-    <script>
-	    $(function() {
-	        $( "#login-button" ).click(function() {
-	            alert("ログイン画面に遷移します。");
-	        });
-	    });
-    </script>
+    <%@ page session="true" %>
 <style>
 
 </style>
@@ -76,9 +51,9 @@
 					</table>
 
 					<div class="checkboxright">
-						<s:form action="GoPurchaseAction.action"><button class="button9" type="submit" id="pur-button">購入</button></s:form>
-						<s:form action="GoNewUserAction.action"><button class="button8" type="submit" id="newuser-button">新規登録</button></s:form>
-						<s:form action="GoLoginAction.action"><button class="button7" type="submit" id="login-button">ログイン</button></s:form>
+						<s:form action="GoPurchaseAction.action"><button class="button9" type="submit">購入</button></s:form>
+						<s:form action="GoNewUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
+						<s:form action="GoLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
 					</div>
 			</div>
 			<h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1>
