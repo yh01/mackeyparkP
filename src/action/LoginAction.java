@@ -13,14 +13,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String id;
 
-	public String getCredit() {
-		return credit;
-	}
-
-	public void setCredit(String credit) {
-		this.credit = credit;
-	}
-
 	public String password;
 
 	public String credit;
@@ -36,9 +28,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(!res){
 			return ERROR;
 		}
-		 LoginDTO dto = new LoginDTO();
 
-	    session.put("id", dto.getId());
+		 LoginDTO dto = new LoginDTO();
+		 dto = dao.getDto();
+
+		 System.out.println(dto.getCredit());
+
 		session.put("id", id );
 		session.put("password", password );
 		session.put("credit",dto.getCredit());
@@ -70,5 +65,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
+	public String getCredit() {
+		return credit;
+	}
+
+	public void setCredit(String credit) {
+		this.credit = credit;
+	}
+
 
 }

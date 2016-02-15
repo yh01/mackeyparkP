@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import dto.LoginDTO;
 import util.DBconnector;
 
-public class LoginDAO {
+public class LoginDAO extends ActionSupport{
 	private boolean res;
 	private Connection con;
 	private String sql;
@@ -19,7 +21,6 @@ public class LoginDAO {
 
 	public boolean select(String id, String password){ //DAOのselectの戻りはboolean
 		res = false;
-
 		try{
 			con = (Connection)DBconnector.getConnection();
 			sql = "SELECT * FROM test WHERE";  //login_tableがテーブル名
@@ -35,10 +36,30 @@ public class LoginDAO {
 				dto.setCredit(credit);
 				res = true;
 			}
+
 		}
 		catch(SQLException e){
 			e.printStackTrace();
+		}finally{
+			if(con != null){
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
+
+
 		return res;
+	}
+
+
+	public LoginDTO getDto() {
+		return dto;
+	}
+
+	public void setDto(LoginDTO dto) {
+		this.dto = dto;
 	}
 }
