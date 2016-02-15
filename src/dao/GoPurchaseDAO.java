@@ -24,6 +24,11 @@ public class GoPurchaseDAO extends JFrame implements ChangeListener{
 		label.setForeground(Color.BLACK);
 		JOptionPane.showMessageDialog(this, label);
 	}
+	public void loginPopup4(){
+		JLabel label = new JLabel("ログイン済みですがクレジットカード情報が不足しています。");
+		label.setForeground(Color.BLACK);
+		JOptionPane.showMessageDialog(this, label);
+	}
 
 	@Override
 	public void stateChanged(ChangeEvent e) {

@@ -13,7 +13,17 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String id;
 
+	public String getCredit() {
+		return credit;
+	}
+
+	public void setCredit(String credit) {
+		this.credit = credit;
+	}
+
 	public String password;
+
+	public String credit;
 
 	private Map<String,Object>session;
 
@@ -26,13 +36,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(!res){
 			return ERROR;
 		}
-		 LoginDTO dto = new LoginDTO(id, password);
+		 LoginDTO dto = new LoginDTO();
 
-	        session.put("id", dto.getId());
-
+	    session.put("id", dto.getId());
 		session.put("id", id );
-
 		session.put("password", password );
+		session.put("credit",dto.getCredit());
 
 
 		return SUCCESS;

@@ -3,10 +3,22 @@ package dto;
 public class LoginDTO {
 	private String id;
 	private String password;
+	private String credit;
 
-	public LoginDTO(String id, String password){
-		this.id = id;
-		this.password = password;
+	public String getCredit() {
+		return credit;
+	}
+
+
+
+	public void setCredit(String credit) {
+		this.credit = credit;
+	}
+
+
+
+	public LoginDTO(){
+
 	}
 
 

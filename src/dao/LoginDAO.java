@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import dto.LoginDTO;
 import util.DBconnector;
 
 public class LoginDAO {
@@ -13,6 +14,8 @@ public class LoginDAO {
 	private String sql;
 	private PreparedStatement ps;
 	private ResultSet rs;
+
+	LoginDTO dto = new LoginDTO();
 
 	public boolean select(String id, String password){ //DAOのselectの戻りはboolean
 		res = false;
@@ -25,10 +28,11 @@ public class LoginDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, password);
-
 			rs = ps.executeQuery(); //更新した件数、アップデートした件数
 
 			if(rs.next()){
+				String credit = rs.getString("credit");
+				dto.setCredit(credit);
 				res = true;
 			}
 		}
