@@ -23,3 +23,7 @@ h1 span{
 	position:relative;
 	bottom:50px;
 }
+
+.clear{
+	clear:both;
+}
