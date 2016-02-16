@@ -36,7 +36,7 @@ $(function() {
 	<img src="jpg/themepark.jpg" class="themepark">
 
 
-		<div id="contents">
+		<div id="main_contents">
 		<s:form method="POST" action="test">
 					<table>
 						<tr>
@@ -73,16 +73,16 @@ $(function() {
 		</div>
 
 
-		<div class="checkbox">
+		<div id="main_checkbox">
 			<div class="checkboxright">
-				<s:form action="GoPurchaseAction.action"><button class="button9" type="submit">購入</button></s:form>
-				<s:form action="GoNewUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
-				<s:form action="GoLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
+				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit">購入</button></s:form>
+				<s:form action="GoMainNewUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
+				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
 			</div>
 		</div>
 
 	</div>
-	<div class="clear"></div>
+	<div class="main_clear"></div>
 	<h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1>
 </body>
 </html>

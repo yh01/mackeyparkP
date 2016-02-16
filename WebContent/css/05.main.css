@@ -23,7 +23,29 @@ h1 span{
 	position:relative;
 	bottom:50px;
 }
-
-.clear{
+#main_contents{
+	padding-left:400px;
+	float:left;
+}
+#main_contents table{
+	margin:auto;
+}
+.main_clear{
 	clear:both;
+}
+#main_checkbox{
+	text-align: center;
+	float:left;
+	padding-left:80px;
+	margin-top:85px;
+}
+
+#main_checkbox table{
+	margin-top: 10%;
+	display: inline-block;
+
+	border:1;
+	cellspacing:5;
+	cellpadding:5px;
+	bordercolor:aqua;
 }
