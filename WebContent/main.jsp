@@ -37,7 +37,7 @@ $(function() {
 
 
 		<div id="main_contents">
-		<s:form method="POST" action="test">
+
 					<table>
 						<tr>
 							<th><s:text name="種類"/></th>
@@ -69,14 +69,14 @@ $(function() {
 						<br>
 						<s:submit cssClass="button9" value="表示"/>
 					</div>
-		</s:form>
+
 		</div>
 
 
 		<div id="main_checkbox">
 			<div class="checkboxright">
 				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit">購入</button></s:form>
-				<s:form action="GoMainNewUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
+				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
 				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
 			</div>
 		</div>

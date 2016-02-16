@@ -63,7 +63,7 @@
 		<result name="creditError">mypage.jsp</result>
 	</action>
 
-	<action name="GoMainNewUserAction" class="action.GoMainNewUserAction" method="execute">
+	<action name="GoMainCreateUserAction" class="action.GoMainCreateUserAction" method="execute">
 		<result name="success">NewUser.jsp</result>
 	</action>
 

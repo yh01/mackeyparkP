@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author 星野
  *
  */
-public class GoMainNewUserAction extends ActionSupport{
+public class GoMainCreateUserAction extends ActionSupport{
 	public String excecute(){
 		return SUCCESS;
 	}
