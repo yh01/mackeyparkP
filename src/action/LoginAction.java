@@ -11,67 +11,78 @@ import dto.LoginDTO;
 
 public class LoginAction extends ActionSupport implements SessionAware{
 
-	public String id;
+	private static final long serialVersionUID = 1L;
 
-	public String password;
+	private String mail_adress;			//ID用のメールアドレス
+	private String password;			//パスワード
 
-	public String credit;
+	private Map<String,Object> session;	//セッションスコープに保存するためのマップリスト
+	private String errorMsg;
 
-	private Map<String,Object>session;
-
+	//struts.xmlの method = "execute" で呼ばれている
 	public String execute(){
 
-		LoginDAO dao = new LoginDAO(); //LoginDAOクラスを作成すると波線が消える
-
-		boolean res = dao.select(id,password);
-
-		if(!res){
+		//LoginDAOクラスを呼び出し
+		LoginDAO dao = new LoginDAO();
+		//データベースからID(メールアドレス)とパスワードが見つからなければ
+		if(!dao.searchDB(mail_adress, password)){
+			setErrorMsg("ID、もしくはパスワードが間違っています");
+			//struts.xmlにERRORを返す（ログイン画面へ）
 			return ERROR;
 		}
 
-		 LoginDTO dto = new LoginDTO();
-		 dto = dao.getDto();
+		//見つかった場合はLoginDTOを呼び出し
 
-		 System.out.println(dto.getCredit());
+		LoginDTO dto = new LoginDTO();
+		dto = dao.getDto();
 
-		session.put("id", id );
-		session.put("password", password );
-		session.put("credit",dto.getCredit());
+		 System.out.println(dto.getUser_id());
+		 System.out.println(dto.getUser_name());
+		 System.out.println(dto.getName_kana());
+		 System.out.println(dto.getCredit_number());
+		 System.out.println(dto.getToken());
+		 System.out.println(dto.getUnique_id());
+
+		 //ユーザーのIDを"user_id"というキーでセッションスコープに保存。以下略
+		 session.put("user_id", dto.getUser_id());
+		 session.put("mail_adress", mail_adress);
+		 session.put("user_name", dto.getUser_name());
+		 session.put("name_kana", dto.getName_kana());
+		 session.put("credit_number", dto.getCredit_number());
+		 session.put("token", dto.getToken());
+		 session.put("unique_id", dto.getUnique_id());
 
 
-		return SUCCESS;
+		//struts.xmlにSUCCESSを返す（メイン画面へ）
+		 return SUCCESS;
 	}
 
-	public String getId(){
-		return id;
+	public String getMail_adress() {
+		return mail_adress;
 	}
 
-	public void setId(String id){
-		this.id = id;
+	public void setMail_adress(String mail_adress) {
+		this.mail_adress = mail_adress;
 	}
 
-	public String getPass(){
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPass(String password){
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public Map<String, Object> getSession(){
-		return session;
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
+	//インターフェースSessionAwareの抽象メソッド
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
-	public String getCredit() {
-		return credit;
-	}
-
-	public void setCredit(String credit) {
-		this.credit = credit;
-	}
-
-
 }

@@ -40,14 +40,14 @@ public class CreditCheckDAO {
 	 */
 	public boolean select(int userId,CreditCheckDTO creditDTO){
 		result=false;
-		con=(Connection)DBconnector.getConnection();
-		String sql="SELECT card_num, token FROM user WHERE id = ? ";
+		con=(Connection)DBconnector.getConnection("openconnect");
+		String sql="SELECT credit_number, token FROM user WHERE user_id = ? ";
 		try{
 			ps=(PreparedStatement) con.prepareStatement(sql);
 			ps.setInt(1, userId);
 			ResultSet rs =ps.executeQuery();
 			if  (rs.next()) {
-				creditDTO.setCreditNum(rs.getInt("card_num"));
+				creditDTO.setCreditNum(rs.getInt("credit_number"));
 				creditDTO.setCreditToken(rs.getString("token"));
 				result=true;
 			}

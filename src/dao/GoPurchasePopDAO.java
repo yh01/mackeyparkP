@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class GoPurchaseDAO extends JFrame implements ChangeListener{
+public class GoPurchasePopDAO extends JFrame implements ChangeListener{
 	public void loginPopup1(){
 		JLabel label = new JLabel("ログインしてないのでログイン画面に遷移します。");
 		label.setForeground(Color.BLACK);
 		JOptionPane.showMessageDialog(this, label);
 	}
 	public void loginPopup2(){
-		JLabel label = new JLabel("ログイン済みです。購入画面に遷移します。");
+		JLabel label = new JLabel("購入画面に遷移します。");
 		label.setForeground(Color.BLACK);
 		JOptionPane.showMessageDialog(this, label);
 	}
@@ -25,7 +25,7 @@ public class GoPurchaseDAO extends JFrame implements ChangeListener{
 		JOptionPane.showMessageDialog(this, label);
 	}
 	public void loginPopup4(){
-		JLabel label = new JLabel("ログイン済みですがクレジットカード情報が不足しています。");
+		JLabel label = new JLabel("ログイン済みですがクレジットカード情報が不足しています。マイページで登録してください。");
 		label.setForeground(Color.BLACK);
 		JOptionPane.showMessageDialog(this, label);
 	}

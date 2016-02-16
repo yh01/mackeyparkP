@@ -72,9 +72,15 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 		String userName = userMap.get("name");
 		LoginOauthDAO dao = new LoginOauthDAO();			//LoginOauthDAOをインスタンス化
 		if (dao.select(uniqueId, NETWORK_NAME)) {			//selectメソッド
-			LoginOauthDTO dto = dao.getLoginOauthDTO();		//
-			session.put("FloginId", dto.getUserId());
+			LoginOauthDTO dto = dao.getLoginOauthDTO();//
+			System.out.println(dto.getCredit_number());
+			System.out.println(dto.getToken());
+
+
+			session.put("loginId", dto.getUserId());
 			session.put("userName", dto.getUserName());
+			session.put("credit_number", dto.getCredit_number());
+			session.put("token", dto.getToken());
 			rtn = SUCCESS;
 			return rtn;
 		}
@@ -85,8 +91,14 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware, 
 
 		dao.select(uniqueId, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
-		session.put("FloginId", dto.getUserId());
+		System.out.println(dto.getCredit_number());
+		System.out.println(dto.getToken());
+
+
+		session.put("loginId", dto.getUserId());
 		session.put("userName", dto.getUserName());
+		session.put("credit_number", dto.getCredit_number());
+		session.put("token", dto.getToken());
 		rtn = SUCCESS;
 		return rtn;
 	}

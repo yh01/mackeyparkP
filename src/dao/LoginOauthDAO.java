@@ -31,7 +31,7 @@ public class LoginOauthDAO{
 	public boolean select(String userUniqueId, String oauthName){
 		Connection con = null;
 		boolean result = false;
-		con = DBconnector.getConnection();
+		con = DBconnector.getConnection("openconnect");
 		try{
 			String sql = "SELECT * FROM user WHERE unique_id = ? AND oauth_name = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -40,8 +40,12 @@ public class LoginOauthDAO{
 			ResultSet rs = stmt.executeQuery();
 
 			if(rs.next()){
+				String credit_number = rs.getString("credit_number");
+				String token = rs.getString("token");
 				dto.setUserId(rs.getInt(1));
 				dto.setUserName(rs.getString(2));
+				dto.setCredit_number(credit_number);
+				dto.setToken(token);
 				result = true;
 			}
 
@@ -112,15 +116,14 @@ public class LoginOauthDAO{
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String now = sdf.format(cal.getTime());
-		con = DBconnector.getConnection();
-		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, update_date, registration_date) values (?,?,?,?,?)";
+		con = DBconnector.getConnection("openconnect");
+		String sql = "INSERT INTO user(user_name, unique_id, oauth_name, user_registration_date) values (?,?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userName);
 			stmt.setString(2, uniqueId);
 			stmt.setString(3, oauthName);
 			stmt.setString(4, now);
-			stmt.setString(5, now);
 
 
 			int insertCount = stmt.executeUpdate();

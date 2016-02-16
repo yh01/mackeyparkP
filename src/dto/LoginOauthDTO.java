@@ -17,7 +17,8 @@ public class LoginOauthDTO{
 	 * ユーザーID
 	 */
 	private int userId;
-
+	private String credit_number;
+	private String token;
 	/**
 	 * 顧客名取得メソッド
 	 * @return userName
@@ -48,5 +49,21 @@ public class LoginOauthDTO{
 	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public String getCredit_number() {
+		return credit_number;
+	}
+
+	public void setCredit_number(String credit_number) {
+		this.credit_number = credit_number;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 }

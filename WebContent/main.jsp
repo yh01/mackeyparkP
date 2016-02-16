@@ -12,10 +12,6 @@
 <link href="jquery-ui-1.11.4.custom/external/jquery/jquery.js">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-    <%@ page session="true" %>
-<style>
-
-</style>
 </head>
 <body>
 	<div id="main">
