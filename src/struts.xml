@@ -48,12 +48,12 @@
 <package name="struts2sample" namespace="/" extends="struts-default">
 
 	<action name="GoMainLoginAction" class="action.GoMainLoginAction" method="execute">
-		<result name="success">main.jsp</result>
+		<result name="success" type="chain">MainTicketListAction</result>
 		<result name="error">login.jsp</result>
 	</action>
 
 	<action name="LoginAction" class="action.LoginAction" method="execute">
-		<result name="success">main.jsp</result>
+		<result name="success" type="chain">MainTicketListAction</result>
 		<result name="error">login.jsp</result>
 	</action>
 
@@ -65,6 +65,11 @@
 
 	<action name="GoMainCreateUserAction" class="action.GoMainCreateUserAction" method="execute">
 		<result name="success">NewUser.jsp</result>
+	</action>
+
+	<action name="MainTicketListAction" class="action.MainTicketListAction" method="execute">
+		<result name="success">main.jsp</result>
+		<result name="error">main.jsp</result>
 	</action>
 
 
@@ -87,36 +92,36 @@
 
 <!-- Twitter認証を行うアクション -->
        <action name="login-twitter" class="action.GoTwitterAction" method="execute">
-           <result name="success">login.jsp</result>
+           <result name="success" type="chain">MainTicketListAction</result>
            <result name="error">login.jsp</result>
        </action>
 
 <!-- Twitter認証のコールバックアクション -->
         <action name="login-twitter-action" class="action.LoginTwitterAction" method="execute">
-            <result name="success">main.jsp</result>
+            <result name="success" type="chain">MainTicketListAction</result>
             <result name="error">login.jsp</result>
         </action>
 
 <!-- Facebook認証を行うアクション -->
         <action name="login-facebook" class="action.GoFacebookAction" method="execute">
-            <result name="success">main.jsp</result>
+            <result name="success" type="chain">MainTicketListAction</result>
             <result name="error">login.jsp</result>
         </action>
 
 <!--  Facebook認証のコールバックアクション-->
         <action name="login-facebook-action" class="action.LoginFacebookAction" method="execute">
-            <result name="success">main.jsp</result>
+            <result name="success" type="chain">MainTicketListAction</result>
             <result name="error">login.jsp</result>
         </action>
 <!-- Google認証を行うアクション -->
         <action name="login-google" class="action.GoGoogleAction" method="execute">
-            <result name="success">main.jsp</result>
+            <result name="success" type="chain">MainTicketListAction</result>
             <result name="error">login.jsp</result>
         </action>
 
 <!-- Google認証のコールバックアクション-->
         <action name="login-google-action" class="action.LoginGoogleAction" method="execute">
-            <result name="success">main.jsp</result>
+            <result name="success" type="chain">MainTicketListAction</result>
             <result name="error">login.jsp</result>
         </action>
 </package>

@@ -29,7 +29,7 @@ public class GoMainLoginAction extends ActionSupport implements SessionAware{
 	 *@return result ユーザー情報からユーザーidを受け取れればSUCCESS、受け取れなければERRORを返します。
 	 */
 	public String execute(){
-		if(session.containsKey("id")){
+		if(session.containsKey("user_id")){
 			Pop.Popup3();
 			System.out.println("成功");
 			return "success";
