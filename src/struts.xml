@@ -73,23 +73,6 @@
 	</action>
 
 
-<!-- Ttest -->
-	<action name="hyouAction" class="action.LoginAction" method="execute">
-		<result name="success">/main.jsp</result>
-		<result name="error">/loginError.jsp</result>
-	</action>
-
-	<action name="GOloginction" class="action.GOloginction" method="execute">
-		<result name="success" type = "chain">hyouAction</result>
-		<result name="error" type = "chain">hyouAction</result>
-	</action>
-
-	<action name="test" class="action.test" method="execute">
-		<result name="success" >/login.jsp</result>
-		<result name="error" type = "chain">hyouAction</result>
-	</action>
-
-
 <!-- Twitter認証を行うアクション -->
        <action name="login-twitter" class="action.GoTwitterAction" method="execute">
            <result name="success" type="chain">MainTicketListAction</result>
