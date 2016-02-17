@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/06.select.css">
 <link rel="stylesheet" type="text/css" href="css/botan.css">
 <link rel="stylesheet" type="text/css" href="css/botan2.css">
+<link rel="stylesheet" type="text/css" href="css/23.24.header_footer.css">
 <link type="text/css" rel="stylesheet"
   href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 
@@ -32,6 +33,49 @@ $(function() {
 
 </head>
 <body>
+<!--ログイン非ログインの判別-->
+<%
+	String mailAdress = (String)session.getAttribute("mail_adress");
+	boolean LoginState;
+	if(mailAdress==null){
+		LoginState=false;
+	}else{
+		LoginState=true;
+	}
+	%>
+<!--ヘッダー全部ここから-->
+	<!--ログアウト時ヘッダー-->
+<%if(LoginState==false){ %>
+	<div id="header">
+
+		<a href="#" class="header-left"><img
+			src="http://free-illustrations-ls01.gatag.net/images/lgi01a201409170000.jpg"
+			class="sample"></a>
+
+		<div class="ribbon">
+				<s:a href="GoMainAction"><span>トップ</span></s:a>
+			 	<s:a href="GoCreateUserAction"><span>新規登録</span></s:a>
+			 <s:a href="GoUserLoginAction"><span>ログイン</span></s:a>
+		</div>
+	</div>
+<%} %>
+
+	<!--ログイン時ヘッダー-->
+<% if(LoginState==true){%>
+	<div id="header">
+
+		<a href="#" class="header-left"><img
+			src="http://free-illustrations-ls01.gatag.net/images/lgi01a201409170000.jpg"
+			class="sample"></a>
+
+		<div class="ribbon">
+				<s:a href="GoMainAction"><span>トップ</span></s:a>
+				<s:a href="GoMyPageAction"><span>マイページ</span></s:a>
+				<s:a href="GoUserLogoutAction"><span>ログアウト</span></s:a>
+		</div>
+	</div>
+<%} %>
+<!--ヘッダー全部ここまで-->
 	<div id="main">
 	<img src="jpg/themepark.jpg" class="themepark">
 
@@ -45,6 +89,7 @@ $(function() {
 							<th><s:text name="値段"/></th>
 							<th><s:text name="枚数"/></th>
 						</tr>
+						<s:form>
 						<s:iterator value="selectList">
 							<tr>
 								<td><s:property value="division" /></td>
@@ -53,6 +98,7 @@ $(function() {
 								<td><s:select name="maisu" list="#{ '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10'}" /></td>
 							</tr>
 						</s:iterator>
+						</s:form>
 					</table>
 
 					<div class="pass" >
@@ -69,7 +115,6 @@ $(function() {
 						<br>
 						<s:submit cssClass="button9" value="表示"/>
 					</div>
-
 		</div>
 
 
@@ -82,6 +127,33 @@ $(function() {
 		</div>
 
 	</div>
+	<!--フッター全部ここから-->
+	<!--ログアウト時フッター-->
+<%if(LoginState==false){ %>
+	<div id="footer">
+		<div class="footer-right">
+			<ul>
+					<li><s:a href="GoCompanyAction">会社概要</s:a></li>
+					<li><s:a href="GoTeamsOfServiceAction">利用規約</s:a></li>
+					<li><s:a href="GoHelpAction">Q&amp;A</s:a></li>
+			</ul>
+		</div>
+	</div>
+<%} %>
+	<!--ログイン時フッター-->
+<%if(LoginState==true){ %>
+	<div id="footer">
+		<div class="footer-right">
+			<ul>
+					<li><s:a href="GoWithdrawalConfirmAction">退会画面</s:a></li>
+					<li><s:a href="GoCompanyAction">会社概要</s:a></li>
+					<li><s:a href="GoTeamsOfServiceAction">利用規約</s:a></li>
+					<li><s:a href="GoHelpAction">Q&amp;A</s:a></li>
+			</ul>
+		</div>
+	</div>
+<%} %>
+<!--フッター全部ここまで-->
 	<div class="main_clear"></div>
 	<h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1>
 </body>
