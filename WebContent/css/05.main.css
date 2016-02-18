@@ -36,8 +36,8 @@ h1 span{
 #main_checkbox{
 	text-align: center;
 	float:left;
-	padding-left:80px;
-	margin-top:85px;
+	padding-left:30px;
+	margin-top:75px;
 }
 
 #main_checkbox table{
@@ -48,4 +48,8 @@ h1 span{
 	cellspacing:5;
 	cellpadding:5px;
 	bordercolor:aqua;
+}
+
+#main_func{
+	padding-bottom:50px;
 }

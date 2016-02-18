@@ -98,8 +98,10 @@
 				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
 			</div>
 		</div>
-
+	<div class="main_clear"></div>
+	<div id="main_func"><h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1></div>
 	</div>
+
 	<!--フッター全部ここから-->
 	<!--ログアウト時フッター-->
 <%if(LoginState==false){ %>
@@ -127,7 +129,5 @@
 	</div>
 <%} %>
 <!--フッター全部ここまで-->
-	<div class="main_clear"></div>
-	<h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1>
 </body>
 </html>
