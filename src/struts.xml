@@ -3,7 +3,9 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
+
 <struts>
+	<constant name="struts.custom.i18n.resources" value="property.main"/>
     <package name="mongo" namespace="/" extends="struts-default">
 <!-- MONGOへ画面遷移アクション -->
 

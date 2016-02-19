@@ -75,9 +75,9 @@
 			<div class="checkbox">
 				<table>
 					<tr>
-						<th><s:text name="種類"/></th>
-						<th><s:text name="備考"/></th>
-						<th><s:text name="値段"/></th>
+						<th><s:text name="%{getText('main.kind')}"/></th>
+						<th><s:text name="%{getText('main.remarks')}"/></th>
+						<th><s:text name="%{getText('main.price')}"/></th>
 					</tr>
 						<s:iterator value="selectList">
 							<tr>
@@ -93,13 +93,13 @@
 
 		<div id="main_checkbox">
 			<div class="checkboxright">
-				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit">購入</button></s:form>
-				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit">新規登録</button></s:form>
-				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit">ログイン</button></s:form>
+				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit"><s:text name="%{getText('main.pur')}"/></button></s:form>
+				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit"><s:text name="%{getText('main.CUser')}"/></button></s:form>
+				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit"><s:text name="%{getText('main.login')}"/></button></s:form>
 			</div>
 		</div>
 	<div class="main_clear"></div>
-	<div id="main_func"><h1 align="center">※<span>購入する際はマイページよりクレジットカード情報の登録が必須となります</span></h1></div>
+	<div id="main_func"><h1 align="center"><span>※<s:text name="%{getText('main.func')}"/></span></h1></div>
 	</div>
 
 	<!--フッター全部ここから-->
