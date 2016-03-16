@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="util.DBconnector"%>
+<%@ page import="dto.LoginDTO"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +24,16 @@
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 <!--1国際化対応のライブラリをインポート-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+<script>
+    $(function() {
+        $( "#sample-button" ).click(function() {
+            alert("ok");
 
+            alert("ok2");
+
+        });
+    });
+    </script>
 </head>
 <body>
 <!--ログイン非ログインの判別-->
@@ -33,7 +45,60 @@
 	}else{
 		LoginState=true;
 	}
-	%>
+%>
+<!--クレジット情報取得-->
+<%
+	class getCledit{
+		Connection con;
+		String sql;
+		PreparedStatement stmt;
+		ResultSet resultSet;
+		public void selectCledit(String mailAdress, LoginDTO dto){
+			try {
+				con = (Connection)DBconnector.getConnection("openconnect");
+				sql = "SELECT credit_number FROM user WHERE mail_address = ? ";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, mailAdress);
+				resultSet = stmt.executeQuery();
+				if (resultSet.next()) {
+					dto.setCredit_number(resultSet.getString("credit_number"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+%>
+
+<%
+	getCledit gC = new getCledit();
+	LoginDTO dto = new LoginDTO();
+	gC.selectCledit(mailAdress, dto);
+	String token = dto.getCredit_number();
+	boolean tokenState;
+	if(token == null){
+		tokenState = false;
+	}else{
+		tokenState = true;
+	}
+%>
+
+<%if(tokenState){%>
+	<script>
+	    $(function() {
+	        $( "#sample-button2" ).click(function() {
+	            alert("tokenOk");
+	        });
+	    });
+	</script>
+<%} %>
+
 <!--ヘッダー全部ここから-->
 	<!--ログアウト時ヘッダー-->
 <%if(LoginState==false){ %>
@@ -94,10 +159,11 @@
 		<div id="main_checkbox">
 			<div class="checkboxright">
 				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit"><s:text name="%{getText('main.pur')}"/></button></s:form>
-				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit"><s:text name="%{getText('main.CUser')}"/></button></s:form>
+				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit" id="sample-button"><s:text name="%{getText('main.CUser')}"/></button></s:form>
 				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit"><s:text name="%{getText('main.login')}"/></button></s:form>
 			</div>
 		</div>
+		<a id="sample-button2">a</a>
 	<div class="main_clear"></div>
 	<div id="main_func"><h1 align="center"><span>※<s:text name="%{getText('main.func')}"/></span></h1></div>
 	</div>

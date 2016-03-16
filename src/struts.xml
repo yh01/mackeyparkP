@@ -5,6 +5,7 @@
 
 
 <struts>
+	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.custom.i18n.resources" value="property.main"/>
     <package name="mongo" namespace="/" extends="struts-default">
 <!-- MONGOへ画面遷移アクション -->
