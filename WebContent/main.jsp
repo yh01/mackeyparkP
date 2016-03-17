@@ -33,7 +33,25 @@
 
         });
     });
-    </script>
+
+    $(function() {
+        $( "#goPur" ).click(function() {
+            alert("購入画面に遷移します");
+        });
+    });
+
+    $(function() {
+        $( "#goMy" ).click(function() {
+            alert("クレジットカード情報が無いのでマイページに遷移します");
+        });
+    });
+
+    $(function() {
+        $( "#alLogged" ).click(function() {
+            alert("ログイン済みです。戻ります");
+        });
+    });
+</script>
 </head>
 <body>
 <!--ログイン非ログインの判別-->
@@ -111,7 +129,7 @@
 		<div class="ribbon">
 				<s:a href="GoMainAction"><span>トップ</span></s:a>
 			 	<s:a href="GoCreateUserAction"><span>新規登録</span></s:a>
-			 <s:a href="GoUserLoginAction"><span>ログイン</span></s:a>
+			 	<s:a href="GoUserLoginAction"><span>ログイン</span></s:a>
 		</div>
 	</div>
 <%} %>
@@ -158,11 +176,25 @@
 
 		<div id="main_checkbox">
 			<div class="checkboxright">
-				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit"><s:text name="%{getText('main.pur')}"/></button></s:form>
-				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit" id="sample-button"><s:text name="%{getText('main.CUser')}"/></button></s:form>
-				<%if(LoginState==true){ %>
-				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit"><s:text name="%{getText('main.login')}"/></button></s:form>
+				<%if(LoginState==true && tokenState==true){ %>
+				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit" id="goPur"><s:text name="%{getText('main.pur')}"/></button></s:form>
 				<%} %>
+
+				<%if(LoginState==true && tokenState==false){ %>
+				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit" id="goMy"><s:text name="%{getText('main.pur')}"/></button></s:form>
+				<%} %>
+
+				<%if(LoginState==false){ %>
+				<button class="button9" data-toggle="modal" data-target="#sampleModal" type="submit"><s:text name="%{getText('main.pur')}"/></button>
+				<%} %>
+
+				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit" id="sample-button"><s:text name="%{getText('main.CUser')}"/></button></s:form>
+
+
+				<%if(LoginState==true){ %>
+				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit" id="alLogged"><s:text name="%{getText('main.login')}"/></button></s:form>
+				<%} %>
+
 				<%if(LoginState==false){ %>
 				<button class="button7" data-toggle="modal" data-target="#sampleModal" type="submit"><s:text name="%{getText('main.login')}"/></button>
 				<%} %>

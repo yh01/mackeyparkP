@@ -30,15 +30,15 @@ public class GoMainLoginAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute(){
 		if(session.containsKey("user_id")){
-			Pop.Popup3();
+			//Pop.Popup3();
 			System.out.println("成功");
 			return "success";
 		}else if(session.containsKey("loginId")){
-			Pop.Popup3();
+			//Pop.Popup3();
 			System.out.println("成功");
 			return "success";
 		}
-		Pop.Popup1();
+		//Pop.Popup1();
 		System.out.println("失敗");
 		return "error";
 	}

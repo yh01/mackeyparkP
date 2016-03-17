@@ -37,24 +37,24 @@ public class GoMainPurchaseAction extends ActionSupport implements SessionAware{
 		String result = "success";
 		if(!session.containsKey("user_id") && !session.containsKey("loginId")){
 			System.out.println("user_id受け取れてない");
-			Pop.Popup1();
+			//Pop.Popup1();
 			result = ERROR;
 		}
 		if(session.containsKey("user_id") && !session.containsKey("credit_number")){
-			Pop.Popup4();
+			//Pop.Popup4();
 			result = "creditError";
 		}
 		if(session.containsKey("loginId") && !session.containsKey("credit_number")){
-			Pop.Popup4();
+			//Pop.Popup4();
 			result = "creditError";
 		}
 		if(session.containsKey("user_id") && session.containsKey("credit_number") || session.containsKey("token")){
-			Pop.Popup2();
+			//Pop.Popup2();
 			System.out.println("成功");
 			result = SUCCESS;
 		}
 		if(session.containsKey("loginId") && session.containsKey("credit_number") || session.containsKey("token")){
-			Pop.Popup2();
+			//Pop.Popup2();
 			System.out.println("成功");
 			result = SUCCESS;
 		}
