@@ -160,7 +160,12 @@
 			<div class="checkboxright">
 				<s:form action="GoMainPurchaseAction.action"><button class="button9" type="submit"><s:text name="%{getText('main.pur')}"/></button></s:form>
 				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit" id="sample-button"><s:text name="%{getText('main.CUser')}"/></button></s:form>
+				<%if(LoginState==true){ %>
 				<s:form action="GoMainLoginAction.action"><button class="button7" type="submit"><s:text name="%{getText('main.login')}"/></button></s:form>
+				<%} %>
+				<%if(LoginState==false){ %>
+				<button class="button7" data-toggle="modal" data-target="#sampleModal" type="submit"><s:text name="%{getText('main.login')}"/></button>
+				<%} %>
 			</div>
 		</div>
 		<a id="sample-button2">a</a>
@@ -195,5 +200,6 @@
 	</div>
 <%} %>
 <!--フッター全部ここまで-->
+<jsp:include page="/login.jsp" />
 </body>
 </html>

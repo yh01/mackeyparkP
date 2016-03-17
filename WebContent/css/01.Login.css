@@ -24,7 +24,7 @@ input[type="text"], [type="password"] {
 
 /* skin */
 .skin {
-	width: 40%;
+	width: 100%;
 	margin: 30px auto;
 	padding: 20px;
 	border: 1px solid #555;
