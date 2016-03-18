@@ -27,14 +27,23 @@ button{
 
 .button9{
     background:#7fbfff;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
 .button8{
     background:#ff7f7f;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
 .button7{
     background:#7fff7f;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
 .button9:hover,.button8:hover,.button7:hover {

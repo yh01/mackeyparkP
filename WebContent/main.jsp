@@ -4,7 +4,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="util.DBconnector"%>
 <%@ page import="dto.LoginDTO"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,10 +27,7 @@
 <script>
     $(function() {
         $( "#sample-button" ).click(function() {
-            alert("ok");
-
-            alert("ok2");
-
+            alert("新規登録画面に遷移します");
         });
     });
 
