@@ -10,42 +10,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>メイン</title>
 
-
+<link rel="stylesheet" href="././css/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="css/05.main.css">
 <link rel="stylesheet" type="text/css" href="css/06.select.css">
 <link rel="stylesheet" type="text/css" href="css/botan.css">
 <link rel="stylesheet" type="text/css" href="css/botan2.css">
 <link rel="stylesheet" type="text/css" href="css/23.24.header_footer.css">
-<link type="text/css" rel="stylesheet"
-  href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-<!--1国際化対応のライブラリをインポート-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/sweetalert-dev.js"></script>
+<script type="text/javascript" src="js/sweetalert.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
 <script>
-    $(function() {
-        $( "#sample-button" ).click(function() {
-            alert("新規登録画面に遷移します");
-        });
-    });
+	function create(){
+		sweetAlert("新規登録画面に遷移します");
+    }
 
     $(function() {
         $( "#goPur" ).click(function() {
-            alert("購入画面に遷移します");
+            swal("購入画面に遷移します");
         });
     });
 
     $(function() {
         $( "#goMy" ).click(function() {
-            alert("クレジットカード情報が無いのでマイページに遷移します");
+        	swal("クレジットカード情報が無いのでマイページに遷移します");
         });
     });
 
     $(function() {
         $( "#alLogged" ).click(function() {
-            alert("ログイン済みです。戻ります");
+        	swal("ログイン済みです。戻ります");
         });
     });
 </script>
@@ -108,7 +104,15 @@
 	<script>
 	    $(function() {
 	        $( "#sample-button2" ).click(function() {
-	            alert("tokenOk");
+	        	var i = 0;
+	        	while(i <= 50){
+	            	alert("Ok×" + i);
+	            	i++;
+	            	if(i == 50){
+	            		alert("お疲れ～");
+	            		break;
+	            	}
+	        	}
 	        });
 	    });
 	</script>
@@ -185,7 +189,7 @@
 				<button class="button9" data-toggle="modal" data-target="#sampleModal" type="submit"><s:text name="%{getText('main.pur')}"/></button>
 				<%} %>
 
-				<s:form action="GoMainCreateUserAction.action"><button class="button8" type="submit" id="sample-button"><s:text name="%{getText('main.CUser')}"/></button></s:form>
+				<s:form action="GoMainCreateUserAction"><button class="button8" type="submit"><s:text name="%{getText('main.CUser')}"/></button></s:form>
 
 
 				<%if(LoginState==true){ %>
@@ -197,7 +201,7 @@
 				<%} %>
 			</div>
 		</div>
-		<a id="sample-button2">a</a>
+		<a onclick="create()">押したらやばい</a>
 	<div class="main_clear"></div>
 	<div id="main_func"><h1 align="center"><span>※<s:text name="%{getText('main.func')}"/></span></h1></div>
 	</div>
