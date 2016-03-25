@@ -20,7 +20,7 @@ $(function() {
 </s:if>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+<%-- <jsp:include page="header.jsp" /> --%>
 	<div id=main>
 		<div id = "mypage_main" align="center">
 		<p class="form-title"><s:text name="%{getText('mypage_my')}"/></p>
@@ -55,6 +55,6 @@ $(function() {
 		</s:form>
 		</div>
 	</div>
-		<jsp:include page="footer.jsp" />
+<%-- 		<jsp:include page="footer.jsp" /> --%>
 </body>
 </html>
